@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Tealorca\\LaravelFreshchat\\": "src"
+            "TealOrca\\LaravelFreshchat\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tealorca\\LaravelFreshchat\\Tests\\": "tests"
+            "TealOrca\\LaravelFreshchat\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,10 +43,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tealorca\\LaravelFreshchat\\LaravelFreshchatServiceProvider"
+                "TealOrca\\LaravelFreshchat\\LaravelFreshchatServiceProvider"
             ],
             "aliases": {
-                "LaravelFreshchat": "Tealorca\\LaravelFreshchat\\LaravelFreshchatFacade"
+                "LaravelFreshchat": "TealOrca\\LaravelFreshchat\\LaravelFreshchatFacade"
             }
         }
     }

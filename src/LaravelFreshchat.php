@@ -1,6 +1,6 @@
 <?php
 
-namespace Tealorca\LaravelFreshchat;
+namespace TealOrca\LaravelFreshchat;
 
 class LaravelFreshchat
 {

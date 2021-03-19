@@ -1,11 +1,11 @@
 <?php
 
-namespace Tealorca\LaravelFreshchat;
+namespace TealOrca\LaravelFreshchat;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Tealorca\LaravelFreshchat\Skeleton\SkeletonClass
+ * @see \TealOrca\LaravelFreshchat\Skeleton\SkeletonClass
  */
 class LaravelFreshchatFacade extends Facade
 {

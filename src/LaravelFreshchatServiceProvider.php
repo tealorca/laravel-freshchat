@@ -1,6 +1,6 @@
 <?php
 
-namespace Tealorca\LaravelFreshchat;
+namespace TealOrca\LaravelFreshchat;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -15,9 +15,13 @@ class LaravelFreshchatServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-freshchat');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-freshchat');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-freshchat');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        \Blade::directive('laravelFreshchat', function () {
+            return "<?php echo \$__env->make( 'laravel-freshchat::widget')->render(); ?>";
+        });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

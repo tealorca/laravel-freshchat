@@ -1,9 +1,9 @@
 <?php
 
-namespace Tealorca\LaravelFreshchat\Tests;
+namespace TealOrca\LaravelFreshchat\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Tealorca\LaravelFreshchat\LaravelFreshchatServiceProvider;
+use TealOrca\LaravelFreshchat\LaravelFreshchatServiceProvider;
 
 class ExampleTest extends TestCase
 {
