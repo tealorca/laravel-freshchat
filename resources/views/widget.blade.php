@@ -1,6 +1,16 @@
 @php
 $authUser = auth()->user();
+
+$authUserExist = (isset($authUser) && isset($authUser->id));
+
+$widgetInitDetails = $authUserExist ? $authUser->getFreshchatUserWidgetInitDetails() : array(
+	'token' => config('laravel-freshchat.token', null),
+	'host' => config('laravel-freshchat.host', null)
+);
+
 @endphp
+
+@if(isset($widgetInitDetails['token'])&& isset($widgetInitDetails['host']) )
 
 	<script>
 	/*
@@ -11,9 +21,15 @@ $authUser = auth()->user();
 	if(!window.laravelFreshchat) {
 
 		window.laravelFreshchat = {};
+		window.laravelFreshchat.widgetInitDetails = @json($widgetInitDetails,JSON_UNESCAPED_SLASHES);
+		@if($authUserExist)
 		window.laravelFreshchat.userRestoreId   = @json($authUser->getFreshchatRestoreId());
-		window.laravelFreshchat.widgetInitDetails = @json($authUser->getFreshchatUserWidgetInitDetails(),JSON_UNESCAPED_SLASHES);
+		@endif
+		@if($authUserExist)
 		window.laravelFreshchat.userProperties = @json($authUser->getFreshchatUserProperties(),JSON_UNESCAPED_SLASHES);
+		@endif
+
+		@if($authUserExist)
 
 		window.laravelFreshchat.storeFreshchatUserId = function (fcResponse) {
 
@@ -42,6 +58,8 @@ $authUser = auth()->user();
 				}
 			}
     	};
+    	@endif
+
 	}
 
 	if(window.laravelFreshchat) {
@@ -49,6 +67,8 @@ $authUser = auth()->user();
 		function initFreshChat() {
 
 			window.fcWidget.init(window.laravelFreshchat.widgetInitDetails);
+
+			@if($authUserExist)
 
 			window.fcWidget.user.get(function(resp) {
 				var status = resp && resp.status,
@@ -78,6 +98,7 @@ $authUser = auth()->user();
 					}
 				}
 			});
+			@endif
 
 		}
 
@@ -89,3 +110,5 @@ $authUser = auth()->user();
 	}
 
 	</script>
+
+@endif
