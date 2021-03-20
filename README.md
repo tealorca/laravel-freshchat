@@ -190,7 +190,7 @@ If you discover any security related issues, please email danielfelix1995@gmail.
 
 ## Credits
 
-- [Daniel Felix](https://github.com/tealorca)
+- [Daniel Felix](https://github.com/itsdanielfelix)
 - [All Contributors](../../contributors)
 
 ## License
